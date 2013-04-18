@@ -91,7 +91,7 @@ If your LESS content does not include @import directive
     
 In case, it contains @import directives.
 
-    var parsedContent = WebLessParser.Parse(lessContent, "<path to the file which stored the LESS content>");
+    var parsedContent = WebLessParser.Parse(lessContent, "<**virtual path** to the file which stored the LESS content>");
 
 #### Limitations
 
