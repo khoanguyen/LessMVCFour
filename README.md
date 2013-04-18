@@ -23,24 +23,19 @@ Open your web.config you will see the following changes
     ...
     <system.web>
       ...
-      <httpHandlers>
-        <add path="*.less" verb="GET" type="dotless.Core.LessCssHttpHandler, dotless.Core" />
-        <remove path="*.less" verb="GET" />
+      <httpHandlers>       
         <add path="*.less" verb="GET" type="LessMVCFour.LessHttpHandler, LessMVCFour" />
       </httpHandlers>
     </system.web>
     <system.webServer>
-      <handlers>
-        ...
-        <add name="dotless" path="*.less" verb="GET" type="dotless.Core.LessCssHttpHandler,dotless.Core" resourceType="File" preCondition="" />
-        <remove name="dotless" />
+      <handlers>             
         <add name="dotless" path="*.less" verb="GET" type="LessMVCFour.LessHttpHandler, LessMVCFour" resourceType="File" preCondition="" />
       </handlers>
     </system.webServer>
     ...
     
     
-dotless registers its handlers to the web.config and due to the limitation of NuGet config transformation (it can only add more elements), LessMVCFour adds a &lt;remove&gt; tag to remove dotless's handler first and register LessMVCFour's handler.
+LessMVCFour switches from dotless's handler to its handler.
 
 #### Using BundleTransform
 
